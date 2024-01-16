@@ -1,13 +1,42 @@
 import React from "react";
-
+import {useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { Button, CheckBox, Img, Input, Line, Text } from "components";
 
 const SigninDefaultPage = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const handleNavigateToSignUp = () => {
     navigate('/signup');
+  };
+
+  const handleSignIn = async () => {
+    try {
+      const response = await fetch("/api/Auth/Login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idNumberOrEmail: email,
+          password: password,
+        }),
+      });
+
+      if (response.ok) {
+        // Assuming the server responds with a token
+        const result = await response.json();
+        // Store the token securely (e.g., in cookies or local storage)
+        // Redirect to the dashboard or any other desired page
+        navigate("/dashboard");
+      } else {
+        // Handle failed login (display an error message, etc.)
+        console.error("Failed to sign in");
+      }
+    } catch (error) {
+      console.error("Error during sign in:", error);
+    }
   };
 
   return (
@@ -95,10 +124,14 @@ const SigninDefaultPage = () => {
                   </div>
                 </div>
               </div>
-              <Button
-                className="bg-deep_orange-300 hover:bg-deep_orange-200 focus:outline-none cursor-pointer font-bold py-3 px-6 rounded-full text-sm text-white border border-white-A700"              >
-                Iniciar sesión
-              </Button>
+              <div className="border border-white-A700 rounded-full">
+                <Button
+                  className="bg-deep_orange-300 hover:bg-deep_orange-200 focus:outline-none cursor-pointer font-bold py-3 px-6 text-sm text-white"
+                  onClick={handleSignIn}
+                >
+                  Iniciar sesión
+                </Button>
+              </div>
               <div className="flex flex-col gap-12 items-center justify-start w-full">
                 <Button className="bg-deep_orange-300 cursor-pointer font-bold py-[19px] rounded-[28px] text-center text-sm text-white-A700 w-full">
                   LOGIN

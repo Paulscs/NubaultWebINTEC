@@ -1,13 +1,48 @@
 import React from "react";
-
+import {useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Img, Input, Line, Text } from "components";
 
 const SignupDefaultPage = () => {
   const navigate = useNavigate();
+  const [fullName, setFullName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
   const handleNavigateToSignIn = () => {
     navigate('/signin');
   };
+  
+  const handleChange = (e, setState) => {
+    setState(e.target.value);
+  };
+
+  const handleSignup = async () => {
+    try {
+      const response = await fetch("/api/User", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName,
+          email,
+          password,
+        }),
+      });
+  
+      if (response.ok) {
+        // Signup successful, you can navigate to another page or show a success message
+      } else {
+        // Handle signup error, maybe display an error message
+        const errorData = await response.json();
+        console.error("Signup failed:", errorData);
+      }
+    } catch (error) {
+      console.error("Unexpected error during signup:", error);
+    }
+  };
+  
   return (
     <>
       <div className="bg-red-50 flex flex-col font-inter items-start justify-start mx-auto md:px-10 sm:px-5 px-[90px] py-[72px] w-auto sm:w-full md:w-full">
@@ -17,7 +52,7 @@ const SignupDefaultPage = () => {
               className="sm:text-2xl md:text-[26px] text-[28px] text-bluegray-900 text-center w-full"
               size="txtInterBold28"
             >
-              <>Don&#39;t worry about overwhelming tasks</>
+              <>Nubault Bank</>
             </Text>
             <Img
               className="h-[597px] w-[493px]"
@@ -32,7 +67,7 @@ const SignupDefaultPage = () => {
                   className="text-2xl md:text-[22px] text-bluegray-800 text-center sm:text-xl w-full"
                   size="txtInterBold24Bluegray800"
                 >
-                  Sign up to Utillia
+                  Regístrate
                 </Text>
                 <div className="flex flex-col gap-[49px] items-center justify-start w-[452px] md:w-full">
                   
@@ -42,7 +77,7 @@ const SignupDefaultPage = () => {
                       className="text-bluegray-800 text-sm"
                       size="txtInterRegular14Bluegray800"
                     >
-                      Or
+                    
                     </Text>
                     <Line className="bg-indigo-50 h-px w-[39%]" />
                   </div>
@@ -51,7 +86,9 @@ const SignupDefaultPage = () => {
                       <div className="flex flex-col items-start justify-start w-full">
                         <Input
                           name="frame"
-                          placeholder="Full name"
+                          placeholder="Nombre Completo"
+                          value={fullName}
+                          onChange={(e) => setFullName(e, setFullName)}
                           className="p-0 placeholder:text-bluegray-400 sm:pr-5 text-base text-bluegray-400 text-left w-full"
                           wrapClassName="bg-white-A700 border border-indigo-50 border-solid flex pl-5 pr-[35px] py-[17px] rounded w-full"
                           type="text"
@@ -68,6 +105,8 @@ const SignupDefaultPage = () => {
                         <Input
                           name="frame_One"
                           placeholder="Email"
+                          value={email}
+                          onChange={(e) => setEmail(e, setEmail)}
                           className="p-0 placeholder:text-bluegray-400 sm:pr-5 text-base text-bluegray-400 text-left w-full"
                           wrapClassName="bg-white-A700 border border-indigo-50 border-solid flex pl-5 pr-[35px] py-[17px] rounded w-full"
                           type="email"
@@ -84,6 +123,8 @@ const SignupDefaultPage = () => {
                         <Input
                           name="password"
                           placeholder="************"
+                          value={password}
+                          onChange={(e) => setPassword(e, setPassword)}
                           className="p-0 placeholder:text-bluegray-400 text-base text-bluegray-400 text-left w-full"
                           wrapClassName="bg-white-A700 border border-indigo-50 border-solid flex pb-[18px] pt-[15px] px-5 rounded w-full"
                           prefix={
@@ -111,6 +152,14 @@ const SignupDefaultPage = () => {
                     </Text>
                   </div>
                 </div>
+              </div>
+              <div className="border border-white-A700 rounded-full">
+                <Button
+                  className="bg-deep_orange-300 hover:bg-deep_orange-200 focus:outline-none cursor-pointer font-bold py-3 px-6 text-sm text-white"
+                  onClick={handleSignup}
+                >
+                  Registrarme
+                </Button>
               </div>
               <div className="flex flex-col gap-12 items-center justify-start w-full">
                 <Button className="bg-deep_orange-300 cursor-pointer font-bold py-[19px] rounded-[28px] text-center text-sm text-white-A700 w-full">
