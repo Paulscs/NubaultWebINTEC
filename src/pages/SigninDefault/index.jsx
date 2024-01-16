@@ -1,16 +1,14 @@
 import React from "react";
 
-import { useGoogleLogin } from "@react-oauth/google";
+import { useNavigate } from "react-router-dom";
 
 import { Button, CheckBox, Img, Input, Line, Text } from "components";
 
 const SigninDefaultPage = () => {
-  const googleSignIn = useGoogleLogin({
-    onSuccess: (res) => {
-      console.log("res", res);
-      alert("Login successfull. 😍");
-    },
-  });
+  const navigate = useNavigate();
+  const handleNavigateToSignUp = () => {
+    navigate('/signup');
+  };
 
   return (
     <>
@@ -21,7 +19,7 @@ const SigninDefaultPage = () => {
               className="sm:text-2xl md:text-[26px] text-[28px] text-bluegray-900 text-center w-full"
               size="txtInterBold28"
             >
-              Manage your work more effectively
+              Nubault Bank
             </Text>
             <Img
               className="h-[483px] w-full"
@@ -36,34 +34,9 @@ const SigninDefaultPage = () => {
                   className="text-2xl md:text-[22px] text-bluegray-800 text-center sm:text-xl w-full"
                   size="txtInterBold24Bluegray800"
                 >
-                  Login to Utillia
+                  Iniciar sesión
                 </Text>
                 <div className="flex flex-col gap-[49px] items-center justify-start w-full">
-                  <Button
-                    className="common-pointer bg-white-A700 border border-indigo-50 border-solid cursor-pointer flex items-center justify-center min-w-[452px] sm:min-w-full pl-[23px] pr-[34px] py-[18px] rounded"
-                    onClick={() => googleSignIn()}
-                    leftIcon={
-                      <Img
-                        className="h-[18px] mb-px mr-[35px]"
-                        src="images/img_google.svg"
-                        alt="google"
-                      />
-                    }
-                  >
-                    <div className="font-medium sm:px-5 text-bluegray-800 text-center text-sm">
-                      Login with Google
-                    </div>
-                  </Button>
-                  <div className="flex sm:flex-col flex-row gap-[42px] items-center justify-start w-full">
-                    <Line className="bg-indigo-50 h-px w-[39%]" />
-                    <Text
-                      className="text-bluegray-800 text-sm"
-                      size="txtInterRegular14Bluegray800"
-                    >
-                      Or
-                    </Text>
-                    <Line className="bg-indigo-50 h-px w-[39%]" />
-                  </div>
                   <div className="flex flex-col gap-4 items-start justify-start w-full">
                     <div className="flex flex-col gap-7 items-start justify-start w-full">
                       <div className="flex flex-col gap-2 items-start justify-start w-full">
@@ -93,7 +66,7 @@ const SigninDefaultPage = () => {
                           className="text-bluegray-800 text-sm w-full"
                           size="txtInterMedium14Bluegray800"
                         >
-                          Password
+                          Contraseña
                         </Text>
                         <Input
                           name="password_One"
@@ -116,18 +89,16 @@ const SigninDefaultPage = () => {
                         inputClassName="flex-1 mr-[5px]"
                         name="remember"
                         id="remember"
-                        label="Remember"
+                        label="Recuerda mi contraseña"
                       ></CheckBox>
-                      <Text
-                        className="flex-1 text-bluegray-800 text-right text-sm underline w-auto"
-                        size="txtInterMedium14Bluegray800"
-                      >
-                        Forgot password?
-                      </Text>
                     </div>
                   </div>
                 </div>
               </div>
+              <Button
+                className="bg-deep_orange-300 hover:bg-deep_orange-200 focus:outline-none cursor-pointer font-bold py-3 px-6 rounded-full text-sm text-white border border-white-A700"              >
+                Iniciar sesión
+              </Button>
               <div className="flex flex-col gap-12 items-center justify-start w-full">
                 <Button className="bg-deep_orange-300 cursor-pointer font-bold py-[19px] rounded-[28px] text-center text-sm text-white-A700 w-full">
                   LOGIN
@@ -137,15 +108,18 @@ const SigninDefaultPage = () => {
                     className="text-bluegray-800 text-sm w-auto"
                     size="txtInterMedium14Bluegray800"
                   >
-                    You don’t have an account yet?
+                    ¿No tienes una cuenta?
                   </Text>
-                  <Text
-                    className="text-deep_orange-300 text-sm underline w-[51px]"
-                    size="txtInterMedium14Deeporange300"
-                  >
-                    Sign up
-                  </Text>
-                </div>
+                  
+                  <div>
+                    <span
+                      className="text-deep_orange-300 text-sm underline cursor-pointer w-[51px]"
+                      onClick={handleNavigateToSignUp}
+                    >
+                      Regístrate
+                    </span>
+                  </div>
+                </div> 
               </div>
             </div>
           </div>

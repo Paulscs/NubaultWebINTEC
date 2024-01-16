@@ -7,3 +7,4 @@ export { SelectBox } from "./SelectBox";
 export { Slider } from "./Slider";
 export { Switch } from "./Switch";
 export { Text } from "./Text";
+export { CheckBox } from './CheckBox';

@@ -1,17 +1,13 @@
 import React from "react";
 
-import { useGoogleLogin } from "@react-oauth/google";
-
+import { useNavigate } from "react-router-dom";
 import { Button, Img, Input, Line, Text } from "components";
 
 const SignupDefaultPage = () => {
-  const googleSignIn = useGoogleLogin({
-    onSuccess: (res) => {
-      console.log("res", res);
-      alert("Login successfull. 😍");
-    },
-  });
-
+  const navigate = useNavigate();
+  const handleNavigateToSignIn = () => {
+    navigate('/signin');
+  };
   return (
     <>
       <div className="bg-red-50 flex flex-col font-inter items-start justify-start mx-auto md:px-10 sm:px-5 px-[90px] py-[72px] w-auto sm:w-full md:w-full">
@@ -39,21 +35,7 @@ const SignupDefaultPage = () => {
                   Sign up to Utillia
                 </Text>
                 <div className="flex flex-col gap-[49px] items-center justify-start w-[452px] md:w-full">
-                  <Button
-                    className="common-pointer bg-white-A700 border border-indigo-50 border-solid cursor-pointer flex items-center justify-center min-w-[452px] sm:min-w-full pl-[23px] pr-[34px] py-[18px] rounded"
-                    onClick={() => googleSignIn()}
-                    leftIcon={
-                      <Img
-                        className="h-[18px] mb-px mr-[35px]"
-                        src="images/img_google.svg"
-                        alt="google"
-                      />
-                    }
-                  >
-                    <div className="font-medium sm:px-5 text-bluegray-800 text-center text-sm">
-                      Login with Google
-                    </div>
-                  </Button>
+                  
                   <div className="flex sm:flex-col flex-row gap-[42px] items-center justify-start w-full">
                     <Line className="bg-indigo-50 h-px w-[39%]" />
                     <Text
@@ -111,13 +93,7 @@ const SignupDefaultPage = () => {
                               alt="lock"
                             />
                           }
-                          suffix={
-                            <Img
-                              className="mt-0.5 mb-auto h-5 ml-[35px]"
-                              src="images/img_eye.svg"
-                              alt="eye"
-                            />
-                          }
+
                         ></Input>
                       </div>
                     </div>
@@ -125,23 +101,13 @@ const SignupDefaultPage = () => {
                       className="leading-[22.00px] text-bluegray-800 text-center text-sm"
                       size="txtInterMedium14Bluegray800"
                     >
-                      <span className="text-bluegray-400 font-inter font-medium">
-                        <>
-                          By clicking “SIGN UP&quot; button, I agree with your
-                        </>
-                      </span>
+                      
                       <span className="text-bluegray-800 font-inter font-medium">
                         <>
                           {" "}
                           <br />
                         </>
                       </span>
-                      <a
-                        href="javascript:"
-                        className="text-bluegray-800 font-inter font-medium underline"
-                      >
-                        Term and Policy
-                      </a>
                     </Text>
                   </div>
                 </div>
@@ -155,14 +121,14 @@ const SignupDefaultPage = () => {
                     className="text-bluegray-800 text-sm w-auto"
                     size="txtInterRegular14Bluegray800"
                   >
-                    You have an account already?
+                    ¿Ya tienes una cuenta?
                   </Text>
-                  <Text
-                    className="text-deep_orange-300 text-sm underline w-11"
-                    size="txtInterMedium14Deeporange300"
+                  <span
+                    className="text-deep_orange-300 text-sm underline cursor-pointer w-11"
+                    onClick={handleNavigateToSignIn}
                   >
-                    Sign in
-                  </Text>
+                    Inicia sesión
+                  </span>
                 </div>
               </div>
             </div>
