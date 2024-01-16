@@ -157,24 +157,7 @@ const EKYCIntroductionStepOnePage = () => {
           <div className="flex flex-col items-start justify-start sm:px-5 px-6 w-full">
             <div className="flex flex-col gap-8 items-start justify-start w-full">
               <div className="flex flex-row md:gap-10 items-center justify-between w-full">
-                <Text
-                  className="text-bluegray-900 text-xl w-auto"
-                  size="txtPoppinsMedium20"
-                >
-                  eKYC
-                </Text>
-                <Text
-                  className="text-base text-bluegray-400 text-right w-auto"
-                  size="txtInterRegular16"
-                >
-                  <span className="text-bluegray-400 font-inter font-normal">
-                    Setting/
-                  </span>
-                  <span className="text-bluegray-800 font-inter font-normal">
-                    {" "}
-                    eKYC
-                  </span>
-                </Text>
+                
               </div>
               <div className="bg-white-A700 flex flex-col items-center justify-center md:px-10 sm:px-5 px-[405px] py-20 rounded shadow-bs w-full">
                 <div className="flex flex-col gap-[58px] items-center justify-start w-auto">
@@ -183,53 +166,74 @@ const EKYCIntroductionStepOnePage = () => {
                     className="text-2xl md:text-[22px] text-bluegray-900 text-center sm:text-xl w-auto"
                     size="txtInterBold24Bluegray900"
                   >
-                    Introduction
+                    Transferencias
                   </Text>
-                  <div className="flex md:flex-col flex-row gap-[30px] items-center justify-between md:ml-[0] ml-[3px] mt-[29px] rounded-[15px] w-full">
-                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
-                      <Text
-                        className="text-base text-bluegray-400"
-                        size="txtInterRegular16Bluegray400"
-                      >
-                        Card Type
-                      </Text>
-                      <Input
-                        name="Group195"
-                        placeholder="Classic"
-                        className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                        wrapClassName="border border-gray-300 border-solid w-full"
-                        shape="round"
-                        color="white_A700"
-                      ></Input>
-                    </div>
-                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
-                      <Text
-                        className="text-base text-bluegray-400"
-                        size="txtInterRegular16Bluegray400"
-                      >
-                        Name On Card
-                      </Text>
-                      <Input
-                        name="Group195 One"
-                        placeholder="My Cards"
-                        className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                        wrapClassName="border border-gray-300 border-solid w-full"
-                        shape="round"
-                        color="white_A700"
-                      ></Input>
-                    </div>
+                  {/*
+                  <div className="flex md:flex-col items-center justify-between md:ml-[0] ml-[3px] mt-[29px] rounded-[15px] w-full">                    
                   </div>
+  */}
 
                   <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
                       <Text
                         className="text-base text-bluegray-400"
                         size="txtInterRegular16Bluegray400"
                       >
-                        Card Number
+                        Nombre del beneficiario
+                      </Text>
+                      <Input
+                        name="Group195"
+                        placeholder="Juana Mora"
+                        className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
+                        wrapClassName="border border-gray-300 border-solid w-full"
+                        shape="round"
+                        color="white_A700"
+                      ></Input>
+                    </div>
+
+                  <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
+                      <Text
+                        className="text-base text-bluegray-400"
+                        size="txtInterRegular16Bluegray400"
+                      >
+                        Cuenta del beneficiario
+                      </Text>
+                      <Input
+                        name="Group195 One"
+                        placeholder="967926508"
+                        className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
+                        wrapClassName="border border-gray-300 border-solid w-full"
+                        shape="round"
+                        color="white_A700"
+                      ></Input>
+                    </div>
+
+                  <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
+                      <Text
+                        className="text-base text-bluegray-400"
+                        size="txtInterRegular16Bluegray400"
+                      >
+                        Monto a transferir
+                      </Text>
+                      <Input
+                        name="Group195 One"
+                        placeholder="$"
+                        className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
+                        wrapClassName="border border-gray-300 border-solid w-full"
+                        shape="round"
+                        color="white_A700"
+                      ></Input>
+                    </div>
+
+                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
+                      <Text
+                        className="text-base text-bluegray-400"
+                        size="txtInterRegular16Bluegray400"
+                      >
+                        Origen de transferencia
                       </Text>
                       <Input
                         name="Group195 Two"
-                        placeholder="**** **** **** ****"
+                        placeholder="967926508"
                         className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
                         wrapClassName="border border-gray-300 border-solid w-full"
                         type="password"
@@ -238,42 +242,13 @@ const EKYCIntroductionStepOnePage = () => {
                       ></Input>
                     </div>
 
-                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start w-[48%] md:w-full">
-                      <Text
-                        className="text-base text-bluegray-400"
-                        size="txtInterRegular16Bluegray400"
-                      >
-                        Expiration Date
-                      </Text>
-                      <SelectBox
-                        className="border border-gray-300 border-solid leading-[normal] text-[15px] text-left w-full"
-                        placeholderClassName="text-bluegray-900"
-                        indicator={
-                          <Img
-                            className="h-6 mr-[19px] w-6"
-                            src="images/img_arrowdown.svg"
-                            alt="arrow_down"
-                          />
-                        }
-                        isMulti={false}
-                        name="date"
-                        options={dateOptionsList}
-                        isSearchable={false}
-                        placeholder="25 January 2025"
-                        shape="round"
-                        color="white_A700"
-                        size="xs"
-                        variant="fill"
-                      />
-                    </div>
-
-                    <Button
+                  <Button
                     className="cursor-pointer font-medium leading-[normal] mb-[11px] min-w-[160px] md:ml-[0] ml-[3px] mt-[30px] rounded-[9px] text-center text-lg"
                     color="indigo_600"
                     size="md"
                     variant="fill"
                   >
-                    Add Card
+                    Confirmar
                   </Button>
 
                 </div>
