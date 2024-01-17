@@ -3,7 +3,7 @@ import React from "react";
 import { Sidebar } from "react-pro-sidebar";
 import { useNavigate } from "react-router-dom";
 
-import { Button, Img, Input, Line, List, SelectBox, Text } from "components";
+import {Button, Img, Input, Line, List, SelectBox, Text} from "components";
 
 import { CloseSVG } from "../../assets/images";
 
@@ -164,7 +164,7 @@ const CreditCardsPage = () => {
               className="ml-5 md:ml-[0] sm:text-2xl md:text-[26px] text-[28px] text-gray-900"
               size="txtInterSemiBold28"
             >
-              Credit Cards
+              Productos
             </Text>
             <Input
               name="GroupEight"
@@ -453,66 +453,6 @@ const CreditCardsPage = () => {
               </div>
             </div>
             <div className="flex md:flex-col flex-row gap-[30px] items-center justify-between w-full">
-              <div className="flex md:flex-1 flex-col gap-5 items-start justify-start w-[32%] md:w-full">
-                <Text
-                  className="text-[22px] text-bluegray-900 sm:text-lg md:text-xl"
-                  size="txtInterSemiBold22"
-                >
-                  Card Expense Statistics
-                </Text>
-                <div className="bg-white-A700 flex flex-col gap-4 items-center justify-end p-7 sm:px-5 rounded-[25px] w-full">
-                  <Img
-                    className="h-[186px] mt-0.5 w-[64%]"
-                    src="images/img_group346chart.svg"
-                    alt="Group346Chart"
-                  />
-                  <List
-                    className="flex flex-col gap-3.5 items-center w-[86%]"
-                    orientation="vertical"
-                  >
-                    <div className="flex flex-row items-center justify-between w-[99%] md:w-full">
-                      <div className="flex flex-row gap-3 items-start justify-start w-[39%]">
-                        <div className="bg-indigo-100 h-[15px] rounded-[50%] w-[15px]"></div>
-                        <Text
-                          className="text-[15px] text-bluegray-400"
-                          size="txtInterMedium15Bluegray400"
-                        >
-                          DBL Bank
-                        </Text>
-                      </div>
-                      <div className="flex flex-row gap-3 items-start justify-start w-2/5">
-                        <div className="bg-indigo-500 h-[15px] rounded-[50%] w-[15px]"></div>
-                        <Text
-                          className="text-[15px] text-bluegray-400"
-                          size="txtInterMedium15Bluegray400"
-                        >
-                          BRC Bank
-                        </Text>
-                      </div>
-                    </div>
-                    <div className="flex flex-row items-center justify-between w-full">
-                      <div className="flex flex-row gap-3 items-start justify-start w-[41%]">
-                        <div className="bg-indigo-600 h-[15px] rounded-[50%] w-[15px]"></div>
-                        <Text
-                          className="text-[15px] text-bluegray-400"
-                          size="txtInterMedium15Bluegray400"
-                        >
-                          ABM Bank
-                        </Text>
-                      </div>
-                      <div className="flex flex-row gap-3 items-start justify-start w-[41%]">
-                        <div className="bg-indigo-200 h-[15px] rounded-[50%] w-[15px]"></div>
-                        <Text
-                          className="text-[15px] text-bluegray-400"
-                          size="txtInterMedium15Bluegray400"
-                        >
-                          MCP Bank
-                        </Text>
-                      </div>
-                    </div>
-                  </List>
-                </div>
-              </div>
               <div className="flex md:flex-1 flex-col gap-5 items-start justify-start w-[66%] md:w-full">
                 <Text
                   className="text-[22px] text-bluegray-900 sm:text-lg md:text-xl"
@@ -601,6 +541,7 @@ const CreditCardsPage = () => {
                       View Details
                     </Text>
                   </div>
+
                   <div className="bg-white-A700 flex flex-1 md:flex-col flex-row md:gap-5 items-center justify-start p-[15px] rounded-[20px] w-full">
                     <Button
                       className="flex h-[60px] items-center justify-center w-[60px]"
@@ -757,116 +698,6 @@ const CreditCardsPage = () => {
                   </div>
                 </List>
               </div>
-            </div>
-            <div className="flex md:flex-col flex-row gap-[30px] items-center justify-between w-full">
-              <div className="flex md:flex-1 flex-col gap-5 items-start justify-start w-[66%] md:w-full">
-                <Text
-                  className="text-[22px] text-bluegray-900 sm:text-lg md:text-xl"
-                  size="txtInterSemiBold22"
-                >
-                  Add New Card
-                </Text>
-                <div className="bg-white-A700 flex flex-col items-start justify-start p-[27px] sm:px-5 rounded-[25px] w-full">
-                  <Text
-                    className="leading-[28.00px] md:ml-[0] ml-[3px] text-base text-bluegray-400 w-[94%] sm:w-full"
-                    size="txtInterRegular16Bluegray400"
-                  >
-                    Credit Card generally means a plastic card issued by
-                    Scheduled Commercial Banks assigned to a Cardholder, with a
-                    credit limit, that can be used to purchase goods and
-                    services on credit or obtain cash advances.
-                  </Text>
-                  <div className="flex md:flex-col flex-row gap-[30px] items-center justify-between md:ml-[0] ml-[3px] mt-[29px] rounded-[15px] w-full">
-                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
-                      <Text
-                        className="text-base text-bluegray-400"
-                        size="txtInterRegular16Bluegray400"
-                      >
-                        Card Type
-                      </Text>
-                      <Input
-                        name="Group195"
-                        placeholder="Classic"
-                        className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                        wrapClassName="border border-gray-300 border-solid w-full"
-                        shape="round"
-                        color="white_A700"
-                      ></Input>
-                    </div>
-                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
-                      <Text
-                        className="text-base text-bluegray-400"
-                        size="txtInterRegular16Bluegray400"
-                      >
-                        Name On Card
-                      </Text>
-                      <Input
-                        name="Group195 One"
-                        placeholder="My Cards"
-                        className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                        wrapClassName="border border-gray-300 border-solid w-full"
-                        shape="round"
-                        color="white_A700"
-                      ></Input>
-                    </div>
-                  </div>
-                  <div className="flex md:flex-col flex-row gap-[30px] items-center justify-between md:ml-[0] ml-[3px] mt-[22px] w-full">
-                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
-                      <Text
-                        className="text-base text-bluegray-400"
-                        size="txtInterRegular16Bluegray400"
-                      >
-                        Card Number
-                      </Text>
-                      <Input
-                        name="Group195 Two"
-                        placeholder="**** **** **** ****"
-                        className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                        wrapClassName="border border-gray-300 border-solid w-full"
-                        type="password"
-                        shape="round"
-                        color="white_A700"
-                      ></Input>
-                    </div>
-                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start w-[48%] md:w-full">
-                      <Text
-                        className="text-base text-bluegray-400"
-                        size="txtInterRegular16Bluegray400"
-                      >
-                        Expiration Date
-                      </Text>
-                      <SelectBox
-                        className="border border-gray-300 border-solid leading-[normal] text-[15px] text-left w-full"
-                        placeholderClassName="text-bluegray-900"
-                        indicator={
-                          <Img
-                            className="h-6 mr-[19px] w-6"
-                            src="images/img_arrowdown.svg"
-                            alt="arrow_down"
-                          />
-                        }
-                        isMulti={false}
-                        name="date"
-                        options={dateOptionsList}
-                        isSearchable={false}
-                        placeholder="25 January 2025"
-                        shape="round"
-                        color="white_A700"
-                        size="xs"
-                        variant="fill"
-                      />
-                    </div>
-                  </div>
-                  <Button
-                    className="cursor-pointer font-medium leading-[normal] mb-[11px] min-w-[160px] md:ml-[0] ml-[3px] mt-[30px] rounded-[9px] text-center text-lg"
-                    color="indigo_600"
-                    size="md"
-                    variant="fill"
-                  >
-                    Add Card
-                  </Button>
-                </div>
-              </div>
               <div className="flex md:flex-1 flex-col gap-5 items-start justify-start w-[32%] md:w-full">
                 <Text
                   className="text-[22px] text-bluegray-900 sm:text-lg md:text-xl"
@@ -1022,6 +853,256 @@ const CreditCardsPage = () => {
                         Withdraw without any card
                       </Text>
                     </div>
+                  </div>
+                </List>
+              </div>
+            </div>
+
+            <div className="flex md:flex-col flex-row gap-[30px] items-center justify-between w-full">
+              <div className="flex md:flex-1 flex-col gap-5 items-start justify-start w-[66%] md:w-full">
+                <Text
+                  className="text-[22px] text-bluegray-900 sm:text-lg md:text-xl"
+                  size="txtInterSemiBold22"
+                >
+                  Lista de cuentas
+                </Text>
+                <List
+                  className="flex flex-col gap-5 items-center w-full"
+                  orientation="vertical"
+                >
+                  <div className="bg-white-A700 flex flex-1 md:flex-col flex-row md:gap-5 items-center justify-start p-[15px] rounded-[20px] w-full">
+                    <Button
+                      className="flex h-[60px] items-center justify-center w-[60px]"
+                      shape="round"
+                      color="gray_102"
+                      size="md"
+                      variant="fill"
+                    >
+                      <Img
+                        className="h-[26px]"
+                        src="images/img_file_1.svg"
+                        alt="file One"
+                      />
+                    </Button>
+                    <div className="flex flex-col gap-[7px] items-center justify-start md:ml-[0] ml-[15px]">
+                      <Text
+                        className="text-base text-bluegray-900"
+                        size="txtInterMedium16Bluegray900"
+                      >
+                        Tipo de cuenta
+                      </Text>
+                      <Text
+                        className="text-[15px] text-bluegray-400"
+                        size="txtInterRegular15Bluegray400"
+                      >
+                        Ahorros
+                      </Text>
+                    </div>
+                    <div className="flex flex-col gap-[7px] items-start justify-start md:ml-[0] ml-[43px]">
+                      <Text
+                        className="text-base text-bluegray-900"
+                        size="txtInterMedium16Bluegray900"
+                      >
+                        Estado
+                      </Text>
+                      <Text
+                        className="text-[15px] text-bluegray-400"
+                        size="txtInterRegular15Bluegray400"
+                      >
+                        Activa
+                      </Text>
+                    </div>
+                    <div className="flex flex-col gap-[7px] items-center justify-start ml-11 md:ml-[0]">
+                      <Text
+                        className="text-base text-bluegray-900"
+                        size="txtInterMedium16Bluegray900"
+                      >
+                        Balance total
+                      </Text>
+                      <Text
+                        className="text-[15px] text-bluegray-400"
+                        size="txtInterRegular15Bluegray400"
+                      >
+                        6,789.89
+                      </Text>
+                    </div>
+                    <div className="flex flex-col gap-[7px] items-start justify-start md:ml-[0] ml-[47px]">
+                      <Text
+                        className="text-base text-bluegray-900"
+                        size="txtInterMedium16Bluegray900"
+                      >
+                        Fecha de apertura
+                      </Text>
+                      <Text
+                        className="text-[15px] text-bluegray-400"
+                        size="txtInterRegular15Bluegray400"
+                      >
+                        24/08/2022
+                      </Text>
+                    </div>
+                    <button
+                      className="md:ml-[0] ml-[34px] text-[15px] text-indigo-500"
+                      size="txtInterMedium15Indigo500"
+                      onClick={() => navigate("/Accounts")}
+                    >
+                      View Details
+                    </button>
+                  </div>
+                  <div className="bg-white-A700 flex flex-1 md:flex-col flex-row md:gap-5 items-center justify-start p-[15px] rounded-[20px] w-full">
+                    <Button
+                      className="flex h-[60px] items-center justify-center w-[60px]"
+                      shape="round"
+                      color="gray_102"
+                      size="md"
+                      variant="fill"
+                    >
+                      <Img
+                        className="h-[26px]"
+                        src="images/img_file_1.svg"
+                        alt="file One"
+                      />
+                    </Button>
+                    <div className="flex flex-col gap-[7px] items-center justify-start md:ml-[0] ml-[15px]">
+                      <Text
+                        className="text-base text-bluegray-900"
+                        size="txtInterMedium16Bluegray900"
+                      >
+                        Tipo de cuenta
+                      </Text>
+                      <Text
+                        className="text-[15px] text-bluegray-400"
+                        size="txtInterRegular15Bluegray400"
+                      >
+                        Ahorros
+                      </Text>
+                    </div>
+                    <div className="flex flex-col gap-[7px] items-start justify-start md:ml-[0] ml-[43px]">
+                      <Text
+                        className="text-base text-bluegray-900"
+                        size="txtInterMedium16Bluegray900"
+                      >
+                        Estado
+                      </Text>
+                      <Text
+                        className="text-[15px] text-bluegray-400"
+                        size="txtInterRegular15Bluegray400"
+                      >
+                        Activa
+                      </Text>
+                    </div>
+                    <div className="flex flex-col gap-[7px] items-center justify-start ml-11 md:ml-[0]">
+                      <Text
+                        className="text-base text-bluegray-900"
+                        size="txtInterMedium16Bluegray900"
+                      >
+                        Balance total
+                      </Text>
+                      <Text
+                        className="text-[15px] text-bluegray-400"
+                        size="txtInterRegular15Bluegray400"
+                      >
+                        6,789.89
+                      </Text>
+                    </div>
+                    <div className="flex flex-col gap-[7px] items-start justify-start md:ml-[0] ml-[47px]">
+                      <Text
+                        className="text-base text-bluegray-900"
+                        size="txtInterMedium16Bluegray900"
+                      >
+                        Fecha de apertura
+                      </Text>
+                      <Text
+                        className="text-[15px] text-bluegray-400"
+                        size="txtInterRegular15Bluegray400"
+                      >
+                        24/08/2022
+                      </Text>
+                    </div>
+                    <button
+                      className="md:ml-[0] ml-[34px] text-[15px] text-indigo-500"
+                      size="txtInterMedium15Indigo500"
+                      onClick={() => navigate("/Accounts")}
+                    >
+                      View Details
+                    </button>
+                  </div>
+                  <div className="bg-white-A700 flex flex-1 md:flex-col flex-row md:gap-5 items-center justify-start p-[15px] rounded-[20px] w-full">
+                    <Button
+                      className="flex h-[60px] items-center justify-center w-[60px]"
+                      shape="round"
+                      color="gray_102"
+                      size="md"
+                      variant="fill"
+                    >
+                      <Img
+                        className="h-[26px]"
+                        src="images/img_file_1.svg"
+                        alt="file One"
+                      />
+                    </Button>
+                    <div className="flex flex-col gap-[7px] items-center justify-start md:ml-[0] ml-[15px]">
+                      <Text
+                        className="text-base text-bluegray-900"
+                        size="txtInterMedium16Bluegray900"
+                      >
+                        Tipo de cuenta
+                      </Text>
+                      <Text
+                        className="text-[15px] text-bluegray-400"
+                        size="txtInterRegular15Bluegray400"
+                      >
+                        Ahorros
+                      </Text>
+                    </div>
+                    <div className="flex flex-col gap-[7px] items-start justify-start md:ml-[0] ml-[43px]">
+                      <Text
+                        className="text-base text-bluegray-900"
+                        size="txtInterMedium16Bluegray900"
+                      >
+                        Estado
+                      </Text>
+                      <Text
+                        className="text-[15px] text-bluegray-400"
+                        size="txtInterRegular15Bluegray400"
+                      >
+                        Activa
+                      </Text>
+                    </div>
+                    <div className="flex flex-col gap-[7px] items-center justify-start ml-11 md:ml-[0]">
+                      <Text
+                        className="text-base text-bluegray-900"
+                        size="txtInterMedium16Bluegray900"
+                      >
+                        Balance total
+                      </Text>
+                      <Text
+                        className="text-[15px] text-bluegray-400"
+                        size="txtInterRegular15Bluegray400"
+                      >
+                        6,789.89
+                      </Text>
+                    </div>
+                    <div className="flex flex-col gap-[7px] items-start justify-start md:ml-[0] ml-[47px]">
+                      <Text
+                        className="text-base text-bluegray-900"
+                        size="txtInterMedium16Bluegray900"
+                      >
+                        Fecha de apertura
+                      </Text>
+                      <Text
+                        className="text-[15px] text-bluegray-400"
+                        size="txtInterRegular15Bluegray400"
+                      >
+                        24/08/2022
+                      </Text>
+                    </div>
+                    <button
+                      className="md:ml-[0] ml-[34px] text-[15px] text-indigo-500"
+                      size="txtInterMedium15Indigo500"
+                      onClick={() => navigate("/Accounts")}
+                    >
+                      View Details
+                    </button>
                   </div>
                 </List>
               </div>

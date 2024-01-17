@@ -173,6 +173,23 @@ const EKYCIntroductionStepOnePage = () => {
                   </div>
   */}
 
+                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
+                      <Text
+                        className="text-base text-bluegray-400"
+                        size="txtInterRegular16Bluegray400"
+                      >
+                        Banco
+                      </Text>
+                      <Input
+                        name="Group195 One"
+                        placeholder="NuBault"
+                        className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
+                        wrapClassName="border border-gray-300 border-solid w-full"
+                        shape="round"
+                        color="white_A700"
+                      ></Input>
+                    </div>
+
                   <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
                       <Text
                         className="text-base text-bluegray-400"
