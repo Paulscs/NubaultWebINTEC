@@ -13,7 +13,7 @@ const dateOptionsList = [
   { label: "Option3", value: "option3" },
 ];
 
-const CreditCardsPage = () => {
+const adminCuentas = () => {
   const navigate = useNavigate();
 
   const [groupeightvalue, setGroupeightvalue] = React.useState("");
@@ -29,6 +29,24 @@ const CreditCardsPage = () => {
               alt="Logo"
             />
            <div className="flex flex-col items-start justify-start mb-[334px] w-full">
+              <div
+                className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
+                onClick={() => navigate("/")}
+              >
+                <div className="flex flex-row gap-5 items-center justify-start md:ml-[0] ml-[23px] w-[65%] md:w-full">
+                <Img
+                  className="h-[25px] w-[25px]"
+                  src="images/img_home_25X25.svg"
+                  alt="home"
+                  />
+                  <Text
+                    className="text-bluegray-400 text-lg"
+                    size="txtInterMedium18Bluegray400"
+                  >
+                    Dashboard
+                  </Text>
+                </div>
+              </div>
               <div
                 className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
                 onClick={() => navigate("/accounts")}
@@ -1096,4 +1114,4 @@ const CreditCardsPage = () => {
   );
 };
 
-export default CreditCardsPage;
+export default adminCuentas;

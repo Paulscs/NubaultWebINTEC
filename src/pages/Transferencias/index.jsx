@@ -23,24 +23,6 @@ const EKYCIntroductionStepOnePage = () => {
               alt="Logo"
             />
            <div className="flex flex-col items-start justify-start mb-[334px] w-full">
-              <div
-                className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
-                onClick={() => navigate("/")}
-              >
-                <div className="flex flex-row gap-5 items-center justify-start md:ml-[0] ml-[23px] w-[65%] md:w-full">
-                  <Img
-                  className="h-[25px] w-[25px]"
-                  src="images/img_home_25X25.svg"
-                  alt="home"
-                  />
-                  <Text
-                    className="text-bluegray-400 text-lg"
-                    size="txtInterMedium18Bluegray400"
-                  >
-                    Dashboard
-                  </Text>
-                </div>
-              </div>
               <div className="flex flex-row gap-[34px] items-center justify-start w-[67%] md:w-full">
                 <Line className="bg-indigo-600 h-[60px] rounded-br-[10px] rounded-tr-[10px] w-1.5" />
                 <div className="flex flex-row gap-5 items-start justify-start w-[77%]">
@@ -171,7 +153,7 @@ const EKYCIntroductionStepOnePage = () => {
                   {/*
                   <div className="flex md:flex-col items-center justify-between md:ml-[0] ml-[3px] mt-[29px] rounded-[15px] w-full">                    
                   </div>
-  */}
+    */}
 
                     <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
                       <Text
@@ -257,7 +239,7 @@ const EKYCIntroductionStepOnePage = () => {
                         shape="round"
                         color="white_A700"
                       ></Input>
-                    </div>
+                    </div>                    
 
                   <Button
                     className="cursor-pointer font-medium leading-[normal] mb-[11px] min-w-[160px] md:ml-[0] ml-[3px] mt-[30px] rounded-[9px] text-center text-lg"
