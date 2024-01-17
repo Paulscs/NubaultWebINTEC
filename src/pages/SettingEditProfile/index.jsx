@@ -32,24 +32,6 @@ const SettingEditProfilePage = () => {
             <div className="flex flex-col items-start justify-start mb-[334px] w-full">
               <div
                 className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
-                onClick={() => navigate("/")}
-              >
-                <div className="flex flex-row gap-5 items-center justify-start md:ml-[0] ml-[23px] w-[65%] md:w-full">
-                  <Img
-                  className="h-[25px] w-[25px]"
-                  src="images/img_home_25X25.svg"
-                  alt="home"
-                  />
-                  <Text
-                    className="text-bluegray-400 text-lg"
-                    size="txtInterMedium18Bluegray400"
-                  >
-                    Dashboard
-                  </Text>
-                </div>
-              </div>
-              <div
-                className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
                 onClick={() => navigate("/transferencias")}
               >
                 <div className="flex flex-row gap-5 items-center justify-start md:ml-[0] ml-[23px] w-[73%] md:w-full">
@@ -238,17 +220,10 @@ const SettingEditProfilePage = () => {
                     className="text-base text-indigo-600"
                     size="txtInterMedium16Indigo600"
                   >
-                    Edit Profile
+                    Profile
                   </Text>
                   <Line className="bg-indigo-600 h-[3px] rounded-tl-[10px] rounded-tr-[10px] w-full" />
-                </div>
-                <Text
-                  className="common-pointer sm:ml-[0] ml-[57px] text-base text-bluegray-400"
-                  size="txtInterMedium16Bluegray400"
-                  onClick={() => navigate("/settingpagepreferences")}
-                >
-                  Preferences
-                </Text>
+                </div>                
                 <Text
                   className="common-pointer sm:ml-[0] ml-[76px] text-base text-bluegray-400"
                   size="txtInterMedium16Bluegray400"
@@ -279,7 +254,7 @@ const SettingEditProfilePage = () => {
                     alt="ticket"
                   />
                 </Button>
-              </div>
+              </div> 
               <div className="flex md:flex-1 flex-col items-start justify-start w-[83%] md:w-full">
                 <div className="md:gap-5 gap-[29px] grid md:grid-cols-1 grid-cols-2 justify-center min-h-[auto] w-full">
                   <div className="flex flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-full">
@@ -474,9 +449,9 @@ const SettingEditProfilePage = () => {
                 >
                   Save
                 </Button>
-              </div>
-            </div>
-          </div>
+              </div>             
+            </div>            
+          </div>          
         </div>
       </div>
     </>

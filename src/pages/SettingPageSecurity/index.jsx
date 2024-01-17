@@ -17,7 +17,127 @@ const SettingPageSecurityPage = () => {
     <>
       <div className="bg-gray-100 flex flex-col font-inter items-center justify-start mx-auto w-full">
         <div className="flex md:flex-col flex-row md:gap-5 items-start justify-evenly w-full">
-          <Sidebar1 className="h-[1024px] md:hidden md:px-5 relative w-[18%] md:w-full" />
+        <Sidebar className="!sticky !w-[250px] flex h-screen md:hidden justify-start overflow-auto md:px-5 top-[0]">
+          <div className="flex flex-col gap-[50px] items-center justify-start mb-[364px] mt-[30px] w-full">
+            <Img
+              className="h-20 md:h-auto object-cover w-[75%]"
+              src="images/nubanksvg.svg"
+              alt="Logo"
+            />
+            <div className="flex flex-col items-start justify-start mb-[334px] w-full">
+
+              <div
+                className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
+                onClick={() => navigate("/transferencias")}
+              >
+                <div className="flex flex-row gap-5 items-center justify-start md:ml-[0] ml-[23px] w-[73%] md:w-full">
+                  <Img
+                    className="h-[25px] w-[25px]"
+                    src="images/img_glyph.svg"
+                    alt="Glyph"
+                  />
+                  <Text
+                    className="text-bluegray-400 text-lg"
+                    size="txtInterMedium18Bluegray400"
+                  >
+                    Transferencias
+                  </Text>
+                </div>
+              </div>
+              <div
+                className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
+                onClick={() => navigate("/accounts")}
+              >
+                <div className="flex flex-row gap-5 items-start justify-start md:ml-[0] ml-[23px] w-[59%] md:w-full">
+                  <Img
+                    className="h-[25px] w-[25px]"
+                    src="images/cuentabanco2.svg"
+                    alt="user"
+                  />
+                  <Text
+                    className="text-bluegray-400 text-lg"
+                    size="txtInterMedium18Bluegray400"
+                  >
+                    Cuenta
+                  </Text>
+                </div>
+              </div>
+              <div
+                className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
+                onClick={() => navigate("/loan")}
+              >
+                <div className="flex flex-row gap-5 items-start justify-start md:ml-[0] ml-[23px] w-[45%] md:w-full">
+                  <Img
+                    className="h-[25px] w-[25px]"
+                    src="images/img_question.svg"
+                    alt="question"
+                  />
+                  <Text
+                    className="text-bluegray-400 text-lg"
+                    size="txtInterMedium18Bluegray400"
+                  >
+                    Préstamos
+                  </Text>
+                </div>
+              </div>
+              <div
+                className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
+                onClick={() => navigate("/productos")}
+              >
+                <div className="flex flex-row gap-5 items-center justify-start md:ml-[0] ml-[23px] w-[72%] md:w-full">
+                  <Img
+                    className="h-[25px] w-[25px]"
+                    src="images/img_file.svg"
+                    alt="file"
+                  />
+                  <Text
+                    className="text-bluegray-400 text-lg"
+                    size="txtInterMedium18Bluegray400"
+                  >
+                    Productos
+                  </Text>
+                </div>
+              </div>
+
+              <div
+                className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
+                onClick={() => navigate("/services")}
+              >
+                <div className="flex flex-row gap-5 items-center justify-start md:ml-[0] ml-[23px] w-[56%] md:w-full">
+                  <Img
+                    className="h-[25px] w-[25px]"
+                    src="images/img_user.svg"
+                    alt="serviceOne"
+                  />
+                  <Text
+                    className="text-bluegray-400 text-lg"
+                    size="txtInterMedium18Bluegray400"
+                  >
+                    Beneficiarios
+                  </Text>
+                </div>
+              </div>
+              <div className="flex flex-col items-start justify-start w-full">
+              <div className="flex flex-row gap-[34px] items-center justify-start w-[72%] md:w-full">
+                <Line className="bg-indigo-600 h-[60px] rounded-br-[10px] rounded-tr-[10px] w-1.5" />
+                <div className="flex flex-row gap-5 items-center justify-start w-[78%]">
+                  <Img
+                    className="h-[25px] w-[25px]"
+                    src="images/img_settings.svg"
+                    alt="settings"
+                  />
+                  <Text
+                    className="text-bluegray-400 text-lg"
+                    size="txtInterMedium18Bluegray400"
+                  >
+                    Ajustes
+                  </Text>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </Sidebar>
           <div className="flex md:flex-1 flex-col gap-[31px] items-center justify-start md:px-5 w-[83%] md:w-full">
             <div className="bg-white-A700 border-b border-gray-300 border-solid flex md:flex-col flex-row md:gap-5 items-center justify-start p-5 w-full">
               <Text
@@ -88,7 +208,7 @@ const SettingPageSecurityPage = () => {
                 alt="EllipseOne"
               />
             </div>
-            <div className="bg-white-A700 flex flex-col items-start justify-end p-[30px] sm:px-5 rounded-[25px] w-[94%] md:w-full">
+            <div className="bg-white-A700 flex flex-col items-start justify-end p-[30px] sm:px-5 rounded-[25px] w-[90%] md:w-full">
               <div className="flex flex-col justify-start mt-[7px] w-full">
                 <div className="flex sm:flex-col flex-row sm:gap-5 items-start justify-start ml-4 md:ml-[0] w-2/5 md:w-full">
                   <Text
@@ -96,14 +216,7 @@ const SettingPageSecurityPage = () => {
                     size="txtInterMedium16Bluegray400"
                     onClick={() => navigate("/settingeditprofile")}
                   >
-                    Edit Profile
-                  </Text>
-                  <Text
-                    className="common-pointer sm:ml-[0] ml-[72px] text-base text-bluegray-400"
-                    size="txtInterMedium16Bluegray400"
-                    onClick={() => navigate("/settingpagepreferences")}
-                  >
-                    Preferences
+                    Profile
                   </Text>
                   <div className="flex flex-col gap-2 items-center justify-start sm:ml-[0] ml-[51px] w-[28%] sm:w-full">
                     <Text
@@ -116,30 +229,6 @@ const SettingPageSecurityPage = () => {
                   </div>
                 </div>
                 <Line className="bg-gray-300 h-px w-full" />
-              </div>
-              <div className="flex flex-col gap-[19px] items-start justify-start mt-[37px] w-[39%] md:w-full">
-                <Text
-                  className="text-[17px] text-bluegray-900"
-                  size="txtInterMedium17"
-                >
-                  Two-factor Authentication
-                </Text>
-                <div className="flex sm:flex-col flex-row gap-5 items-center justify-start w-full">
-                  <Switch
-                    onColor="#359766"
-                    offColor="#359766"
-                    onHandleColor="#ffffff"
-                    offHandleColor="#ffffff"
-                    value={true}
-                    className="w-[14%]"
-                  />
-                  <Text
-                    className="text-base text-bluegray-400"
-                    size="txtInterRegular16Bluegray400"
-                  >
-                    Enable or disable two factor authentication
-                  </Text>
-                </div>
               </div>
               <div className="flex flex-col items-start justify-start mt-[27px] rounded-[15px] w-[49%] md:w-full">
                 <Text
