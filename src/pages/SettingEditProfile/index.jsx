@@ -241,14 +241,7 @@ const SettingEditProfilePage = () => {
                     Edit Profile
                   </Text>
                   <Line className="bg-indigo-600 h-[3px] rounded-tl-[10px] rounded-tr-[10px] w-full" />
-                </div>
-                <Text
-                  className="common-pointer sm:ml-[0] ml-[57px] text-base text-bluegray-400"
-                  size="txtInterMedium16Bluegray400"
-                  onClick={() => navigate("/settingpagepreferences")}
-                >
-                  Preferences
-                </Text>
+                </div>                
                 <Text
                   className="common-pointer sm:ml-[0] ml-[76px] text-base text-bluegray-400"
                   size="txtInterMedium16Bluegray400"

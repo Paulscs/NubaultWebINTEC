@@ -98,13 +98,6 @@ const SettingPageSecurityPage = () => {
                   >
                     Edit Profile
                   </Text>
-                  <Text
-                    className="common-pointer sm:ml-[0] ml-[72px] text-base text-bluegray-400"
-                    size="txtInterMedium16Bluegray400"
-                    onClick={() => navigate("/settingpagepreferences")}
-                  >
-                    Preferences
-                  </Text>
                   <div className="flex flex-col gap-2 items-center justify-start sm:ml-[0] ml-[51px] w-[28%] sm:w-full">
                     <Text
                       className="text-base text-indigo-600"
@@ -116,30 +109,6 @@ const SettingPageSecurityPage = () => {
                   </div>
                 </div>
                 <Line className="bg-gray-300 h-px w-full" />
-              </div>
-              <div className="flex flex-col gap-[19px] items-start justify-start mt-[37px] w-[39%] md:w-full">
-                <Text
-                  className="text-[17px] text-bluegray-900"
-                  size="txtInterMedium17"
-                >
-                  Two-factor Authentication
-                </Text>
-                <div className="flex sm:flex-col flex-row gap-5 items-center justify-start w-full">
-                  <Switch
-                    onColor="#359766"
-                    offColor="#359766"
-                    onHandleColor="#ffffff"
-                    offHandleColor="#ffffff"
-                    value={true}
-                    className="w-[14%]"
-                  />
-                  <Text
-                    className="text-base text-bluegray-400"
-                    size="txtInterRegular16Bluegray400"
-                  >
-                    Enable or disable two factor authentication
-                  </Text>
-                </div>
               </div>
               <div className="flex flex-col items-start justify-start mt-[27px] rounded-[15px] w-[49%] md:w-full">
                 <Text
