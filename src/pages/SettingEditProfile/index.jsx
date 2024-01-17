@@ -2,7 +2,7 @@ import React from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import { Button, Img, Input, Line, List, SelectBox, Text } from "components";
+import { Button, Img, Input, Line, List, SelectBox, Text, profileComponent } from "components";
 import { Sidebar } from "react-pro-sidebar";
 
 import { CloseSVG } from "../../assets/images";
@@ -238,7 +238,7 @@ const SettingEditProfilePage = () => {
                     className="text-base text-indigo-600"
                     size="txtInterMedium16Indigo600"
                   >
-                    Edit Profile
+                    Profile
                   </Text>
                   <Line className="bg-indigo-600 h-[3px] rounded-tl-[10px] rounded-tr-[10px] w-full" />
                 </div>                
@@ -273,200 +273,9 @@ const SettingEditProfilePage = () => {
                   />
                 </Button>
               </div>
-              <div className="flex md:flex-1 flex-col items-start justify-start w-[83%] md:w-full">
-                <div className="md:gap-5 gap-[29px] grid md:grid-cols-1 grid-cols-2 justify-center min-h-[auto] w-full">
-                  <div className="flex flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-full">
-                    <Text
-                      className="text-base text-bluegray-400"
-                      size="txtInterRegular16Bluegray400"
-                    >
-                      Your Name
-                    </Text>
-                    <Input
-                      name="language"
-                      placeholder="Charlene Reed "
-                      className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                      wrapClassName="border border-gray-300 border-solid w-full"
-                      shape="round"
-                      color="white_A700"
-                    ></Input>
-                  </div>
-                  <div className="flex flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-full">
-                    <Text
-                      className="text-base text-bluegray-400"
-                      size="txtInterRegular16Bluegray400"
-                    >
-                      User Name
-                    </Text>
-                    <Input
-                      name="language One"
-                      placeholder="Charlene Reed "
-                      className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                      wrapClassName="border border-gray-300 border-solid w-full"
-                      shape="round"
-                      color="white_A700"
-                    ></Input>
-                  </div>
-                  <div className="flex flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-full">
-                    <Text
-                      className="text-base text-bluegray-400"
-                      size="txtInterRegular16Bluegray400"
-                    >
-                      Email
-                    </Text>
-                    <Input
-                      name="email One"
-                      placeholder="charlenereed@gmail.com "
-                      className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                      wrapClassName="border border-gray-300 border-solid w-full"
-                      shape="round"
-                      color="white_A700"
-                    ></Input>
-                  </div>
-                  <div className="flex flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-full">
-                    <Text
-                      className="text-base text-bluegray-400"
-                      size="txtInterRegular16Bluegray400"
-                    >
-                      Password
-                    </Text>
-                    <Input
-                      name="password One"
-                      placeholder="**********"
-                      className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                      wrapClassName="border border-gray-300 border-solid w-full"
-                      shape="round"
-                      color="white_A700"
-                    ></Input>
-                  </div>
-                </div>
-                <div className="flex md:flex-col flex-row gap-[29px] items-center justify-between mt-[22px] w-full">
-                  <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start w-[49%] md:w-full">
-                    <Text
-                      className="text-base text-bluegray-400"
-                      size="txtInterRegular16Bluegray400"
-                    >
-                      Date of Birth
-                    </Text>
-                    <SelectBox
-                      className="border border-gray-300 border-solid leading-[normal] text-[15px] text-left w-full"
-                      placeholderClassName="text-bluegray-900"
-                      indicator={
-                        <Img
-                          className="h-1.5 mr-[25px] w-3"
-                          src="images/img_arrowright_bluegray_400.svg"
-                          alt="arrow_down"
-                        />
-                      }
-                      isMulti={false}
-                      name="date"
-                      options={dateOptionsList}
-                      isSearchable={false}
-                      placeholder="25 January 1990"
-                      shape="round"
-                      color="white_A700"
-                      size="xs"
-                      variant="fill"
-                    />
-                  </div>
-                  <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[49%] md:w-full">
-                    <Text
-                      className="text-base text-bluegray-400"
-                      size="txtInterRegular16Bluegray400"
-                    >
-                      Present Address
-                    </Text>
-                    <Input
-                      name="Group195"
-                      placeholder="San Jose, California, USA"
-                      className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                      wrapClassName="border border-gray-300 border-solid w-full"
-                      shape="round"
-                      color="white_A700"
-                    ></Input>
-                  </div>
-                </div>
-                <List
-                  className="flex flex-col gap-[22px] items-center mt-[22px] w-full"
-                  orientation="vertical"
-                >
-                  <div className="flex flex-1 md:flex-col flex-row gap-[29px] items-center justify-between rounded-[15px] w-full">
-                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[49%] md:w-full">
-                      <Text
-                        className="text-base text-bluegray-400"
-                        size="txtInterRegular16Bluegray400"
-                      >
-                        Permanent Address
-                      </Text>
-                      <Input
-                        name="Group195 One"
-                        placeholder="San Jose, California, USA"
-                        className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                        wrapClassName="border border-gray-300 border-solid w-full"
-                        shape="round"
-                        color="white_A700"
-                      ></Input>
-                    </div>
-                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[49%] md:w-full">
-                      <Text
-                        className="text-base text-bluegray-400"
-                        size="txtInterRegular16Bluegray400"
-                      >
-                        City
-                      </Text>
-                      <Input
-                        name="Group195 One"
-                        placeholder="San Jose"
-                        className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                        wrapClassName="border border-gray-300 border-solid w-full"
-                        shape="round"
-                        color="white_A700"
-                      ></Input>
-                    </div>
-                  </div>
-                  <div className="flex flex-1 md:flex-col flex-row gap-[29px] items-center justify-between rounded-[15px] w-full">
-                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[49%] md:w-full">
-                      <Text
-                        className="text-base text-bluegray-400"
-                        size="txtInterRegular16Bluegray400"
-                      >
-                        Postal Code
-                      </Text>
-                      <Input
-                        name="zipcode"
-                        placeholder="45962"
-                        className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                        wrapClassName="border border-gray-300 border-solid w-full"
-                        shape="round"
-                        color="white_A700"
-                      ></Input>
-                    </div>
-                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[49%] md:w-full">
-                      <Text
-                        className="text-base text-bluegray-400"
-                        size="txtInterRegular16Bluegray400"
-                      >
-                        Country
-                      </Text>
-                      <Input
-                        name="Group195 Two"
-                        placeholder="USA"
-                        className="leading-[normal] p-0 placeholder:text-bluegray-900 text-[15px] text-left w-full"
-                        wrapClassName="border border-gray-300 border-solid w-full"
-                        shape="round"
-                        color="white_A700"
-                      ></Input>
-                    </div>
-                  </div>
-                </List>
-                <Button
-                  className="cursor-pointer font-medium leading-[normal] min-w-[190px] md:ml-[0] ml-[675px] mt-[30px] rounded-[15px] text-center text-lg"
-                  color="indigo_600"
-                  size="md"
-                  variant="fill"
-                >
-                  Save
-                </Button>
+              
+              <div>
+                <profileComponent />
               </div>
             </div>
           </div>
