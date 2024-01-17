@@ -19,24 +19,29 @@ const SignupDefaultPage = () => {
 
   const handleSignup = async () => {
     try {
-      const response = await fetch("/api/User", {
+      const response = await fetch("http://localhost:57678/api/User", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          fullName,
-          email,
-          password,
+          "name": "Paul222",
+          "lastName": "Calderon222",
+          "idNumber": "000-121212212-1",
+          "phoneNumber": "8094441977",
+          "email": "paulscalderon@gmail.com",
+          "password": "paul0409"
         }),
       });
   
       if (response.ok) {
-        // Signup successful, you can navigate to another page or show a success message
+        console.log("Signup succes");
+        console.log(response);
       } else {
         // Handle signup error, maybe display an error message
         const errorData = await response.json();
         console.error("Signup failed:", errorData);
+        console.log(response);
       }
     } catch (error) {
       console.error("Unexpected error during signup:", error);

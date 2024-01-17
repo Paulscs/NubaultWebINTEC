@@ -1,55 +1,104 @@
-import React, { useState } from 'react';
+// LoanApplication.jsx
+
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const LoanApplication = () => {
-  // State to manage form fields
-  const [formData, setFormData] = useState({
-    userId: '', // You may need to get the user ID dynamically
-    loanAmount: '',
-    loanDurationMonths: '',
-  });
+  const [loanAmount, setLoanAmount] = useState('');
+  const [loanDurationMonths, setLoanDurationMonths] = useState('');
+  const [userId, setUserId] = useState('');
+  const [showForm, setShowForm] = useState(false);
+  const [isLoanRequested, setIsLoanRequested] = useState(false);
+  const [showButton, setShowButton] = useState(true);
 
-  // Handle form input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  useEffect(() => {
+    // Fetch the user ID from the logged-in user when the component mounts
+    const fetchUserId = async () => {
+      try {
+        const response = await axios.get('/api/User/Logged');
+        setUserId(response.data.data.id); // Adjust this line based on the actual structure of the response
+      } catch (error) {
+        console.error('Error fetching user ID:', error);
+      }
+    };
+
+    fetchUserId();
+  }, []);
+
+  const handleButtonClick = () => {
+    setShowButton(false);
+    setShowForm(true);
   };
 
-  // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your logic to handle the loan application submission
-    console.log('Form submitted:', formData);
-    // You can send the form data to your backend API here
+
+    try {
+      // Your API endpoint for requesting a loan
+      const response = await axios.post('/api/Loan/Request', {
+        userId,
+        loanAmount: parseFloat(loanAmount),
+        loanDurationMonths: parseInt(loanDurationMonths),
+      });
+
+      console.log('Loan application successful:', response.data);
+      setIsLoanRequested(true);
+      setShowForm(false);
+      // Handle success, show a success message, or redirect the user
+    } catch (error) {
+      console.error('Error applying for a loan:', error);
+      // Handle error, show an error message, or redirect the user
+    }
   };
 
   return (
-    <div>
-      <h2>Loan Application</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Loan Amount:
-          <input
-            type="number"
-            name="loanAmount"
-            value={formData.loanAmount}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Loan Duration (months):
-          <input
-            type="number"
-            name="loanDurationMonths"
-            value={formData.loanDurationMonths}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <button type="submit">Submit Application</button>
-      </form>
+    <div className="p-6 bg-white rounded-md shadow-md">
+      {showButton && (
+        <button
+          onClick={handleButtonClick}
+          className="bg-white border border-black text-black py-2 px-4 rounded-md"
+        >
+          Aplicar para un préstamo
+        </button>
+      )}
+      {showForm && (
+        <form onSubmit={handleSubmit}>
+          <label className="block">
+            Monto de préstamo:
+            <input
+              type="number"
+              value={loanAmount}
+              onChange={(e) => setLoanAmount(e.target.value)}
+              required
+              className="block w-full mt-1"
+            />
+          </label>
+          <br />
+          <label className="block">
+            Duración de préstamo:
+            <input
+              type="number"
+              value={loanDurationMonths}
+              onChange={(e) => setLoanDurationMonths(e.target.value)}
+              required
+              className="block w-full mt-1"
+            />
+          </label>
+          <br />
+          <br />
+          <button
+            type="submit"
+            className="bg-white border border-black text-black py-2 px-4 rounded-md"
+          >
+            Aplicar por préstamo
+          </button>
+        </form>
+      )}
+      {isLoanRequested && (
+        <p>
+          Has solicitado un préstamo exitosamente.
+        </p>
+      )}
     </div>
   );
 };

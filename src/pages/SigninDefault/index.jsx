@@ -5,34 +5,53 @@ import { Button, CheckBox, Img, Input, Line, Text } from "components";
 
 const SigninDefaultPage = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [idNumberOrEmail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleNavigateToSignUp = () => {
     navigate('/signup');
   };
 
+  const [credentials, setCredentials] = useState({
+    
+    idNumberOrEmail, password
+    
+  });
+
+  const handleEmailInputChange = (event) => {
+    const value = event.target.value;
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      idNumberOrEmail: value,
+    }));
+  };
+
+  const handlePasswordInputChange = (event) => {
+    const value = event.target.value;
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      password: value,
+    }));
+  };
+
+
   const handleSignIn = async () => {
     try {
-      const response = await fetch("/api/Auth/Login", {
+      const response = await fetch("http://localhost:57678/api/Auth/Login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          idNumberOrEmail: email,
-          password: password,
-        }),
+        body: JSON.stringify( credentials),
       });
 
       if (response.ok) {
-        // Assuming the server responds with a token
         const result = await response.json();
-        // Store the token securely (e.g., in cookies or local storage)
-        // Redirect to the dashboard or any other desired page
-        navigate("/dashboard");
+        console.log("Tamo adentro");
+        console.log(result);
+        navigate("/");
       } else {
-        // Handle failed login (display an error message, etc.)
         console.error("Failed to sign in");
+        console.log("email:" + credentials.idNumberOrEmail + "password:" + credentials.password);
       }
     } catch (error) {
       console.error("Error during sign in:", error);
@@ -88,6 +107,8 @@ const SigninDefaultPage = () => {
                               alt="mail"
                             />
                           }
+                          value={credentials.idNumberOrEmail} 
+                          onChange={handleEmailInputChange}
                         ></Input>
                       </div>
                       <div className="flex flex-col gap-2 items-start justify-start w-full">
@@ -109,6 +130,9 @@ const SigninDefaultPage = () => {
                               alt="lock"
                             />
                           }
+                          type="password" 
+                          value={credentials.password} 
+                          onChange={handlePasswordInputChange} 
                         ></Input>
                       </div>
                     </div>
