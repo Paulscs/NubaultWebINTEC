@@ -17,6 +17,8 @@ const SigninDefaultPage = () => {
     
   });
 
+  const [authenticated, setAuthenticated] = useState(false);
+
   const handleEmailInputChange = (event) => {
     const value = event.target.value;
     setCredentials((prevCredentials) => ({
@@ -33,31 +35,47 @@ const SigninDefaultPage = () => {
     }));
   };
 
-
   const handleSignIn = async () => {
-    try {
-      const response = await fetch("http://localhost:57678/api/Auth/Login", {
+
+      fetch("http://localhost:57678/api/Auth/Login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify( credentials),
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        console.log("Tamo adentro");
-        console.log(result);
-        navigate("/");
-      } else {
-        console.error("Failed to sign in");
-        console.log("email:" + credentials.idNumberOrEmail + "password:" + credentials.password);
+        body: JSON.stringify(credentials),
+      }).then(response => response.json()).then(result =>{
+        if(result.isSuccess == true){
+          const token = result.value.token
+          localStorage.setItem("token", token);
+          isSuccessLog(result);
+        }
+      } )
+      function isSuccessLog(result){
+        console.log(result)
+        setAuthenticated(true);
+        navigate("/accounts");
       }
-    } catch (error) {
-      console.error("Error during sign in:", error);
-    }
-  };
+      // if (response.ok) {
+      //   // const result = await response.json();
+      //   // Store the token in localStorage
+      //   // localStorage.setItem("token", result.token);
+      //   // console.log(localStorage);
+      //   // console.log("Tamo adentro");
+      //   // console.log(result);
 
+      //   // Update the state to indicate the user is authenticated
+      //   setAuthenticated(true);
+
+      //   // Redirect to the home page
+      //   navigate("/");
+      // } else {
+      //   // Handle failed login (display an error message, etc.)
+      //   console.error("Failed to sign in");
+      //   console.log("email:" + credentials.idNumberOrEmail + "password:" + credentials.password);
+      // }
+
+  };
+  
   return (
     <>
       <div className="bg-red-50 flex flex-col font-inter items-start justify-start mx-auto md:px-10 sm:px-5 px-[90px] py-[106px] w-auto sm:w-full md:w-full">

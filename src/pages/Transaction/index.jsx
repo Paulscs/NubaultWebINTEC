@@ -141,7 +141,7 @@ const TransactionPage = () => {
               </div>
               <div
                 className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
-                onClick={() => navigate("/services")}
+                onClick={() => navigate("/beneficiarios")}
               >
                 <div className="flex flex-row gap-5 items-center justify-start md:ml-[0] ml-[23px] w-[56%] md:w-full">
                   <Img

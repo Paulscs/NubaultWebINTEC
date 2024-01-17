@@ -90,7 +90,7 @@ const LoanApplication = () => {
             type="submit"
             className="bg-white border border-black text-black py-2 px-4 rounded-md"
           >
-            Aplicar por préstamo
+            Aplicar
           </button>
         </form>
       )}

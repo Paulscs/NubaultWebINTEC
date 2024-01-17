@@ -24,7 +24,6 @@ const LoanDetails = ({ loanId }) => {
 
   return (
     <div className="p-6 bg-white rounded-md shadow-md">
-      <h2>Loan Details</h2>
       {loading ? (
         <p>Loading...</p>
       ) : loanDetails ? (
@@ -35,7 +34,7 @@ const LoanDetails = ({ loanId }) => {
           {/* Add more details as needed */}
         </div>
       ) : (
-        <p>Loan not found</p>
+        <p>No tienes préstamos</p>
       )}
     </div>
   );

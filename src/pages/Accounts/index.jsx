@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { Sidebar } from "react-pro-sidebar";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,42 @@ import { CloseSVG } from "../../assets/images";
 
 const AccountsPage = () => {
   const navigate = useNavigate();
+  const [userData, setUserData] = useState({});
 
+  useEffect(() => {
+ 
+    const fetchUserData = async () => {
+      try {
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+          // Redirect to the login page if the token is not available
+          navigate("/signin");
+          return;
+        }
+
+        const response = await fetch("http://localhost:57678/api/User/Logged", {
+          method: "GET",
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          setUserData(result.value); // Assuming the user data is available in the 'data' property
+          console.log(result.value)
+        } else {
+          console.error("Failed to fetch user data");
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, [navigate]);
+  
   const [groupeightvalue, setGroupeightvalue] = React.useState("");
 
   return (
@@ -23,24 +58,6 @@ const AccountsPage = () => {
               alt="Logo"
             />
            <div className="flex flex-col items-start justify-start mb-[334px] w-full">
-              <div
-                className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
-                onClick={() => navigate("/")}
-              >
-                <div className="flex flex-row gap-5 items-center justify-start md:ml-[0] ml-[23px] w-[65%] md:w-full">
-                <Img
-                  className="h-[25px] w-[25px]"
-                  src="images/img_home_25X25.svg"
-                  alt="home"
-                  />
-                  <Text
-                    className="text-bluegray-400 text-lg"
-                    size="txtInterMedium18Bluegray400"
-                  >
-                    Dashboard
-                  </Text>
-                </div>
-              </div>
               <div
                 className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
                 onClick={() => navigate("/transferencias")}
@@ -114,7 +131,7 @@ const AccountsPage = () => {
 
               <div
                 className="common-pointer flex flex-col items-start justify-start p-[17px] w-full"
-                onClick={() => navigate("/services")}
+                onClick={() => navigate("/beneficiarios")}
               >
                 <div className="flex flex-row gap-5 items-center justify-start md:ml-[0] ml-[23px] w-[56%] md:w-full">
                   <Img
@@ -152,75 +169,32 @@ const AccountsPage = () => {
           </div>
         </Sidebar>
         <div className="flex flex-1 flex-col gap-[31px] items-center justify-start md:px-5 w-full">
-          <div className="bg-white-A700 border-b border-gray-300 border-solid flex md:flex-col flex-row md:gap-5 items-center justify-start p-5 w-full">
-            <Text
-              className="ml-5 md:ml-[0] sm:text-2xl md:text-[26px] text-[28px] text-gray-900"
-              size="txtInterSemiBold28"
-            >
-              Cuentas
+        <div className="bg-white-A700 border-b border-gray-300 border-solid flex md:flex-col flex-row md:gap-5 items-center justify-between p-5 w-full">
+      <Text
+        className="sm:text-2xl md:text-[26px] text-[28px] text-gray-900"
+        size="txtInterSemiBold28"
+      >
+        Cuentas
+      </Text>
+
+      {userData && (
+        <div className="flex items-center">
+          <Text
+            className="sm:text-xl md:text-[18px] text-[20px] text-gray-900"
+            size="txtInterSemiBold20"
+          >
+            {userData.name}
+          </Text>
+          <Text
+            className="ml-2 sm:text-xl md:text-[18px] text-[20px] text-gray-900"
+            size="txtInterSemiBold20"
+          >
+            {userData.lastName}
             </Text>
-            <Input
-              name="GroupEight"
-              placeholder="Search for something"
-              value={groupeightvalue}
-              onChange={(e) => setGroupeightvalue(e)}
-              className="!placeholder:text-bluegray-400 !text-bluegray-400 leading-[normal] p-0 text-[15px] text-left w-full"
-              wrapClassName="flex md:flex-1 md:ml-[0] ml-[470px] md:mt-0 my-[5px] rounded-[25px] w-[23%] md:w-full"
-              prefix={
-                <Img
-                  className="cursor-pointer h-5 ml-[25px] mr-[15px] my-[15px]"
-                  src="images/img_search.svg"
-                  alt="search"
-                />
-              }
-              suffix={
-                <CloseSVG
-                  fillColor="#888ea2"
-                  className="cursor-pointer h-5 my-auto"
-                  onClick={() => setGroupeightvalue("")}
-                  style={{
-                    visibility:
-                      groupeightvalue?.length <= 0 ? "hidden" : "visible",
-                  }}
-                  height={20}
-                  width={20}
-                  viewBox="0 0 20 20"
-                />
-              }
-              color="gray_101"
-            ></Input>
-            <Button
-              className="flex h-[50px] items-center justify-center md:ml-[0] ml-[30px] md:mt-0 my-[5px] w-[50px]"
-              shape="circle"
-              color="gray_102"
-              size="sm"
-              variant="fill"
-            >
-              <Img
-                className="h-[25px]"
-                src="images/img_settings_50X50.svg"
-                alt="settings One"
-              />
-            </Button>
-            <Button
-              className="flex h-[50px] items-center justify-center md:ml-[0] ml-[30px] md:mt-0 my-[5px] w-[50px]"
-              shape="circle"
-              color="gray_102"
-              size="sm"
-              variant="fill"
-            >
-              <Img
-                className="h-[25px]"
-                src="images/img_notification.svg"
-                alt="notification"
-              />
-            </Button>
-            <Img
-              className="h-[60px] md:h-auto md:ml-[0] ml-[35px] rounded-[50%] w-[60px]"
-              src="images/img_ellipse1.png"
-              alt="EllipseOne"
-            />
-          </div>
+            </div>
+          )}
+        </div>
+          
           <div className="flex flex-col gap-[23px] items-center justify-start w-[94%] md:w-full">
             <div className="flex md:flex-col flex-row gap-[30px] items-center justify-between w-full">
               <List
@@ -435,92 +409,8 @@ const AccountsPage = () => {
               </div>
               <div className="flex md:flex-1 flex-col items-center justify-start w-[32%] md:w-full">
                 <div className="flex flex-col gap-5 items-center justify-start w-full">
-                  <div className="flex flex-row items-start justify-between w-full">
-                    <Text
-                      className="text-[22px] text-bluegray-900 sm:text-lg md:text-xl"
-                      size="txtInterSemiBold22"
-                    >
-                      My Card
-                    </Text>
-                    <Text
-                      className="common-pointer mt-[5px] text-[17px] text-bluegray-900"
-                      size="txtInterSemiBold17"
-                      onClick={() => navigate("/investments")}
-                    >
-                      See All
-                    </Text>
-                  </div>
-                  <div className="bg-indigo-600 flex flex-col gap-[37px] items-center justify-end pt-6 rounded-[25px] w-full">
-                    <div className="flex flex-col gap-6 items-start justify-start w-[86%] md:w-full">
-                      <div className="flex flex-row items-start justify-between w-full">
-                        <div className="flex flex-col items-start justify-start">
-                          <Text
-                            className="text-white-A700 text-xs"
-                            size="txtInterRegular12WhiteA700"
-                          >
-                            Balance
-                          </Text>
-                          <Text
-                            className="mt-1 text-white-A700 text-xl"
-                            size="txtInterRegular20"
-                          >
-                            $5,756
-                          </Text>
-                        </div>
-                        <Img
-                          className="h-[34px] md:h-auto object-cover w-[34px]"
-                          src="images/img_chipcard.png"
-                          alt="ChipCard"
-                        />
-                      </div>
-                      <div className="flex flex-row gap-[59px] items-center justify-start w-[77%] md:w-full">
-                        <div className="flex flex-col items-start justify-start">
-                          <Text
-                            className="text-white-A700_b2 text-xs"
-                            size="txtInterRegular12"
-                          >
-                            CARD HOLDER
-                          </Text>
-                          <Text
-                            className="mt-1 text-[15px] text-white-A700"
-                            size="txtInterRegular15"
-                          >
-                            Eddy Cusuma
-                          </Text>
-                        </div>
-                        <div className="flex flex-col items-start justify-start">
-                          <Text
-                            className="text-white-A700_b2 text-xs"
-                            size="txtInterRegular12"
-                          >
-                            VALID THRU
-                          </Text>
-                          <Text
-                            className="mt-1 text-[15px] text-white-A700"
-                            size="txtInterRegular15"
-                          >
-                            12/22
-                          </Text>
-                        </div>
-                      </div>
-                    </div>
-                    <Input
-                      name="Group1033"
-                      placeholder="3778 **** **** 1234"
-                      className="leading-[normal] md:text-xl p-0 placeholder:text-white-A700 sm:text-lg text-[22px] text-left w-full"
-                      wrapClassName="flex rounded-bl-[25px] rounded-br-[25px] w-full"
-                      suffix={
-                        <Img
-                          className="ml-[35px] mr-6 my-5"
-                          src="images/img_contrast.svg"
-                          alt="contrast"
-                        />
-                      }
-                      size="sm"
-                      variant="gradient"
-                      color="white_A700_26_white_A700_26"
-                    ></Input>
-                  </div>
+                  
+
                 </div>
               </div>
             </div>

@@ -29,7 +29,7 @@ const Home = () => {
           <Link to="/loan">Loan</Link>
         </li>
         <li>
-          <Link to="/services">Services</Link>
+          <Link to="/beneficiarios">Services</Link>
         </li>
         <li>
           <Link to="/settingeditprofile">SettingEditProfile</Link>
