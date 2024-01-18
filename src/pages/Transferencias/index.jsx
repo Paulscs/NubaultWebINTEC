@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import ShopDetailItemHeader from "components/ShopDetailItemHeader";
 import { Sidebar } from "react-pro-sidebar";
@@ -10,7 +10,109 @@ import { CloseSVG } from "../../assets/images";
 
 const EKYCIntroductionStepOnePage = () => {
   const navigate = useNavigate();
+  const [userData, setUserData] = useState({});
+  const [accountData, setAccountData] = useState({});
+  const [monto, setMonto] = useState({});
   const [searchboxvalue, setSearchboxvalue] = React.useState("");
+
+  const requestBody = {
+    sourceAccountId: "7eeb3ded-4e83-4e28-36a1-08dc17a30417",
+    amount: 34540,
+    concept: "Pago",
+    userId: "07b217d2-c5ab-46f8-d18d-08dc17a2e295",
+    accountDestinationNumber: "2001798311"
+  };
+
+  const fetchTransferToAccount = async (userData, token, accountData, monto) => {
+    try {
+      console.log(userData.id);
+  
+      // if (!accountData || !accountData[0]) {
+      //   console.error("Account data is not available", e);
+      //   return;
+      // }
+  
+      const response = await fetch(
+        `http://localhost:57678/api/Transfer/Express`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+         body: JSON.stringify(requestBody),
+        }
+      );
+  
+      if (response.ok) {
+        const result = await response.json();
+        setAccountData(result.value);
+        console.log(result.value);
+      } else {
+        console.error("Failed to fetch user data");
+        console.error(monto);
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      console.error(monto);
+    }
+  };
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await fetch("http://localhost:57678/api/User/Logged", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          setUserData(result.value);
+          console.log(result.value);
+
+          // Move the fetchUserAccountsData call here
+          fetchUserAccountsData(result.value, token);
+        } else {
+          console.error("Failed to fetch user data");
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    const fetchUserAccountsData = async (userData, token) => {
+      try {
+
+        console.log(userData.id);
+        const response = await fetch(
+          `http://localhost:57678/api/Account/User/${userData.id}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (response.ok) {
+          const result = await response.json();
+          setAccountData(result.value);
+          console.log(result.value);
+        } else {
+          console.error("Failed to fetch user data");
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+   
+
+    fetchUserData();
+  }, [navigate]);
+
+  
 
   return (
     <>
@@ -210,6 +312,7 @@ const EKYCIntroductionStepOnePage = () => {
                       <Text
                         className="text-base text-bluegray-400"
                         size="txtInterRegular16Bluegray400"
+                        onChange={(e) => setMonto(e, setMonto)}
                       >
                         Monto a transferir
                       </Text>
@@ -223,7 +326,7 @@ const EKYCIntroductionStepOnePage = () => {
                       ></Input>
                     </div>
 
-                    <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
+                    {/* <div className="flex md:flex-1 flex-col gap-[11px] items-start justify-start rounded-[15px] w-[48%] md:w-full">
                       <Text
                         className="text-base text-bluegray-400"
                         size="txtInterRegular16Bluegray400"
@@ -239,13 +342,14 @@ const EKYCIntroductionStepOnePage = () => {
                         shape="round"
                         color="white_A700"
                       ></Input>
-                    </div>                    
+                    </div>                     */}
 
                   <Button
                     className="cursor-pointer font-medium leading-[normal] mb-[11px] min-w-[160px] md:ml-[0] ml-[3px] mt-[30px] rounded-[9px] text-center text-lg"
                     color="indigo_600"
                     size="md"
                     variant="fill"
+                    onClick={fetchTransferToAccount}
                   >
                     Confirmar
                   </Button>

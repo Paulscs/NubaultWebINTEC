@@ -1,7 +1,6 @@
 {
   "name": "pauls-application-2",
   "version": "0.1.0",
-
   "private": true,
   "dependencies": {
     "@dhiwise/react-switch": "^1.0.2",
